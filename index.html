@@ -250,7 +250,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: .82;
+      opacity: .86;
       transition: transform .35s ease, opacity .35s ease;
     }
 
@@ -376,7 +376,7 @@
 
     @media (max-width: 850px) {
       .hero {
-        grid-template-columns: 1fr 0.8fr;
+        grid-template-columns: 1fr .8fr;
         gap: 35px;
       }
 
@@ -495,7 +495,10 @@
             >
               Créer mon affiche
             </a>
-            <a class="button secondary" href="#galerie">Voir la collection</a>
+
+            <a class="button secondary" href="#galerie">
+              Voir la collection
+            </a>
           </div>
         </div>
 
@@ -518,56 +521,7 @@
           <p>7 univers, une même passion.</p>
         </div>
 
-        <div class="poster-grid">
-          <article class="poster">
-            <img src="./EDF.png" alt="Affiche de l'équipe de France">
-            <span>01 / ÉQUIPE DE FRANCE</span>
-            <strong>EDF</strong>
-            <small>Les Bleus · Édition prestige</small>
-          </article>
-
-          <article class="poster">
-            <img src="./lewandoski.png" alt="Affiche Lewandowski">
-            <span>02 / BARCELONE</span>
-            <strong>Lewandowski</strong>
-            <small>Le buteur · Matchday</small>
-          </article>
-
-          <article class="poster">
-            <img src="./liverpool.png" alt="Affiche Liverpool">
-            <span>03 / ANFIELD</span>
-            <strong>Liverpool</strong>
-            <small>You'll never walk alone</small>
-          </article>
-
-          <article class="poster">
-            <img src="./om.png" alt="Affiche de l'OM">
-            <span>04 / ORANGE VÉLODROME</span>
-            <strong>OM</strong>
-            <small>Marseille · Édition ville</small>
-          </article>
-
-          <article class="poster">
-            <img src="./psg.png" alt="Affiche du PSG">
-            <span>05 / PARIS</span>
-            <strong>PSG</strong>
-            <small>Capitale football</small>
-          </article>
-
-          <article class="poster">
-            <img src="./UF.png" alt="Affiche UF">
-            <span>06 / MANCHESTER</span>
-            <strong>UF</strong>
-            <small>Édition football</small>
-          </article>
-
-          <article class="poster">
-            <img src="./zidane.png" alt="Affiche Zidane">
-            <span>07 / LA LÉGENDE</span>
-            <strong>Zidane</strong>
-            <small>Numéro 10 · Intemporel</small>
-          </article>
-        </div>
+        <div class="poster-grid" id="poster-grid"></div>
       </section>
 
       <section class="price" id="commande">
@@ -618,5 +572,88 @@
       </a>
     </footer>
   </div>
+
+  <script>
+    const affiches = [
+      {
+        fichier: "EDF.png",
+        nom: "EDF",
+        categorie: "01 / ÉQUIPE DE FRANCE",
+        description: "Les Bleus · Édition prestige",
+        alt: "Affiche de l'équipe de France"
+      },
+      {
+        fichier: "lewandoski.png",
+        nom: "Lewandowski",
+        categorie: "02 / BARCELONE",
+        description: "Le buteur · Matchday",
+        alt: "Affiche Lewandowski"
+      },
+      {
+        fichier: "liverpool.png",
+        nom: "Liverpool",
+        categorie: "03 / ANFIELD",
+        description: "You'll never walk alone",
+        alt: "Affiche Liverpool"
+      },
+      {
+        fichier: "om.png",
+        nom: "OM",
+        categorie: "04 / ORANGE VÉLODROME",
+        description: "Marseille · Édition ville",
+        alt: "Affiche de l'OM"
+      },
+      {
+        fichier: "psg.png",
+        nom: "PSG",
+        categorie: "05 / PARIS",
+        description: "Capitale football",
+        alt: "Affiche du PSG"
+      },
+      {
+        fichier: "UF.png",
+        nom: "UF",
+        categorie: "06 / MANCHESTER",
+        description: "Édition football",
+        alt: "Affiche UF"
+      },
+      {
+        fichier: "zidane.png",
+        nom: "Zidane",
+        categorie: "07 / LA LÉGENDE",
+        description: "Numéro 10 · Intemporel",
+        alt: "Affiche Zidane"
+      }
+    ];
+
+    const grille = document.getElementById("poster-grid");
+    const dossierDuSite = new URL("./", window.location.href);
+
+    affiches.forEach(function (affiche) {
+      const carte = document.createElement("article");
+      carte.className = "poster";
+
+      const image = document.createElement("img");
+      image.src = new URL(encodeURIComponent(affiche.fichier), dossierDuSite).href;
+      image.alt = affiche.alt;
+      image.loading = "lazy";
+
+      const categorie = document.createElement("span");
+      categorie.textContent = affiche.categorie;
+
+      const nom = document.createElement("strong");
+      nom.textContent = affiche.nom;
+
+      const description = document.createElement("small");
+      description.textContent = affiche.description;
+
+      carte.appendChild(image);
+      carte.appendChild(categorie);
+      carte.appendChild(nom);
+      carte.appendChild(description);
+
+      grille.appendChild(carte);
+    });
+  </script>
 </body>
 </html>
