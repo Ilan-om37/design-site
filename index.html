@@ -3,25 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Affiches de football personnalisées — Design Foot 13">
-  <title>Design Foot 13 — Affiches de football</title>
+  <meta name="description" content="Exemples d'affiches de football et demandes de créations personnalisées.">
+  <title>Design Foot 13 — Affiches personnalisées</title>
 
   <style>
     :root {
       --black: #090a0d;
+      --panel: #121318;
       --white: #f3efe7;
       --gold: #d9b366;
       --muted: #aaa59b;
       --line: rgba(217, 179, 102, .28);
+      --error: #ff8d8d;
+      --success: #8fe0ad;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -33,10 +32,7 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
       width: min(1180px, calc(100% - 40px));
@@ -68,25 +64,28 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 23px;
+      gap: 22px;
       color: var(--muted);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: .13em;
     }
 
-    .instagram {
-      padding: 11px 16px;
+    .nav-links a:hover,
+    footer a:hover { color: var(--white); }
+
+    .nav-links .nav-cta {
+      padding: 11px 15px;
       color: var(--gold);
       border: 1px solid var(--gold);
     }
 
     .hero {
-      min-height: 590px;
+      min-height: 560px;
       display: grid;
       grid-template-columns: 1.1fr .9fr;
       align-items: center;
-      gap: 70px;
+      gap: 65px;
       padding-block: 75px;
     }
 
@@ -99,7 +98,7 @@
 
     h1 {
       margin: 18px 0 25px;
-      font: clamp(52px, 7vw, 91px)/.92 Georgia, serif;
+      font: clamp(49px, 7vw, 88px)/.94 Georgia, serif;
       letter-spacing: -.05em;
     }
 
@@ -109,17 +108,10 @@
     }
 
     .intro {
-      max-width: 510px;
+      max-width: 530px;
       color: #c7c3bc;
       font-size: 17px;
-      line-height: 1.65;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+      line-height: 1.7;
     }
 
     .button {
@@ -131,87 +123,92 @@
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: .12em;
+      border: 0;
+      cursor: pointer;
     }
+
+    .button:hover { filter: brightness(1.08); }
 
     .button.secondary {
       color: var(--white);
       background: transparent;
-      border: 1px solid #4b4b4b;
+      border: 1px solid #555;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
     }
 
     .feature {
       position: relative;
       width: min(355px, 100%);
-      aspect-ratio: .68;
+      aspect-ratio: .72;
       margin-inline: auto;
-      padding: 24px;
+      padding: 25px;
       overflow: hidden;
-      background: linear-gradient(145deg, #15161a, #030303 70%);
-      box-shadow: 24px 28px 0 rgba(217, 179, 102, .10), 0 20px 70px #000;
-    }
-
-    .feature::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border: 1px solid rgba(217, 179, 102, .55);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(145deg, rgba(217, 179, 102, .1), transparent 42%),
+        linear-gradient(145deg, #17181d, #030303 75%);
+      border: 1px solid rgba(217, 179, 102, .35);
+      box-shadow: 20px 24px 0 rgba(217, 179, 102, .08), 0 20px 70px #000;
     }
 
     .feature::after {
       content: "13";
       position: absolute;
-      right: -20px;
-      bottom: -48px;
-      color: rgba(217, 179, 102, .10);
-      font: 230px Georgia, serif;
-    }
-
-    .feature-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding-top: 12px;
-      border-top: 4px solid var(--gold);
+      right: -15px;
+      bottom: -65px;
+      color: rgba(217, 179, 102, .1);
+      font: 250px Georgia, serif;
     }
 
     .feature small {
+      position: relative;
+      z-index: 1;
       color: var(--gold);
-      font-size: 9px;
-      letter-spacing: .3em;
+      font-size: 10px;
+      letter-spacing: .25em;
+      line-height: 1.7;
     }
 
     .feature strong {
-      font: 54px/.82 Georgia, serif;
-      letter-spacing: -.07em;
+      position: relative;
+      z-index: 1;
+      font: clamp(45px, 5vw, 60px)/.88 Georgia, serif;
+      letter-spacing: -.06em;
       text-transform: uppercase;
     }
 
     .feature p {
-      max-width: 200px;
+      position: relative;
+      z-index: 1;
+      max-width: 230px;
       color: #d7d1c4;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1.65;
     }
 
-    .gallery {
-      padding: 32px 0 100px;
-      scroll-margin-top: 20px;
-    }
+    section { scroll-margin-top: 20px; }
+
+    .gallery { padding: 35px 0 90px; }
 
     .section-heading {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 20px;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
     }
 
     h2 {
-      margin: 0;
-      font: 43px Georgia, serif;
+      margin: 8px 0 0;
+      font: clamp(36px, 5vw, 48px) Georgia, serif;
       letter-spacing: -.04em;
     }
 
@@ -224,24 +221,23 @@
     .poster-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 15px;
+      gap: 16px;
     }
 
     .poster {
       position: relative;
-      min-height: 340px;
+      min-height: 350px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 19px;
       overflow: hidden;
-      background: #161616;
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, .07);
       transition: transform .25s ease;
     }
 
-    .poster:hover {
-      transform: translateY(-7px);
-    }
+    .poster:hover { transform: translateY(-5px); }
 
     .poster img {
       position: absolute;
@@ -250,35 +246,16 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: .86;
-      transition: transform .35s ease, opacity .35s ease;
+      transition: transform .4s ease;
     }
 
-    .poster:hover img {
-      transform: scale(1.06);
-      opacity: 1;
-    }
-
-    .poster::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      inset: 8px;
-      border: 1px solid rgba(255, 255, 255, .3);
-      pointer-events: none;
-    }
+    .poster:hover img { transform: scale(1.04); }
 
     .poster::after {
       content: "";
       position: absolute;
-      z-index: 1;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, .4),
-        transparent 38%,
-        rgba(0, 0, 0, .82)
-      );
+      background: linear-gradient(180deg, rgba(0,0,0,.45), transparent 36%, rgba(0,0,0,.8));
       pointer-events: none;
     }
 
@@ -286,7 +263,8 @@
     .poster strong,
     .poster small {
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      text-shadow: 0 1px 5px #000;
     }
 
     .poster span {
@@ -296,10 +274,8 @@
     }
 
     .poster strong {
-      max-width: 100%;
-      font: 34px/.95 Georgia, serif;
+      font: clamp(26px, 3vw, 36px)/.95 Georgia, serif;
       text-transform: uppercase;
-      letter-spacing: -.05em;
       overflow-wrap: anywhere;
     }
 
@@ -310,46 +286,157 @@
       letter-spacing: .12em;
     }
 
-    .price {
-      padding: 78px 20px;
-      text-align: center;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(90deg, transparent, rgba(217, 179, 102, .08), transparent);
-      scroll-margin-top: 20px;
-    }
-
-    .price h2 {
-      margin: 14px 0;
-      font-size: clamp(36px, 6vw, 70px);
-    }
-
-    .price h2 strong {
-      color: var(--gold);
-    }
-
-    .price p {
-      max-width: 540px;
-      margin: 0 auto 28px;
+    .gallery-note {
+      margin: 22px 0 0;
       color: var(--muted);
-      line-height: 1.65;
+      font-size: 13px;
+      line-height: 1.6;
     }
+
+    .request-section {
+      padding: 78px 0 90px;
+      border-block: 1px solid var(--line);
+      background: linear-gradient(90deg, transparent, rgba(217, 179, 102, .06), transparent);
+    }
+
+    .request-intro {
+      max-width: 700px;
+      margin-bottom: 30px;
+      color: #c7c3bc;
+      line-height: 1.7;
+    }
+
+    .form-card {
+      max-width: 850px;
+      padding: clamp(22px, 5vw, 42px);
+      background: rgba(18, 19, 24, .92);
+      border: 1px solid var(--line);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label,
+    .field-label {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .required { color: var(--gold); }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      color: var(--white);
+      background: #090a0d;
+      border: 1px solid #414148;
+      border-radius: 0;
+      font: 14px Arial, sans-serif;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid rgba(217, 179, 102, .65);
+      outline-offset: 1px;
+      border-color: var(--gold);
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    input[type="file"]::file-selector-button {
+      margin-right: 12px;
+      padding: 9px 12px;
+      color: #111;
+      background: var(--gold);
+      border: 0;
+      cursor: pointer;
+    }
+
+    textarea {
+      min-height: 125px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    .hint {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .file-status {
+      min-height: 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .file-status.error { color: var(--error); }
+    .file-status.success { color: var(--success); }
+
+    .consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 2px;
+      accent-color: var(--gold);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .form-message {
+      min-height: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-message.error { color: var(--error); }
 
     .benefits {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 85px 0;
+      gap: 18px;
+      padding: 75px 0;
     }
 
     .benefit {
-      padding: 24px;
+      padding: 23px;
       border: 1px solid var(--line);
     }
 
     .benefit b {
       display: block;
-      margin-bottom: 11px;
+      margin-bottom: 12px;
       color: var(--gold);
       font: 28px Georgia, serif;
     }
@@ -365,66 +452,45 @@
       display: flex;
       justify-content: space-between;
       gap: 18px;
-      padding: 44px 0;
+      padding: 38px 0;
       color: var(--muted);
       font-size: 12px;
+      border-top: 1px solid var(--line);
     }
 
-    footer a {
-      color: var(--gold);
-    }
+    footer a { color: var(--gold); }
 
     @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr .8fr;
-        gap: 35px;
-      }
-
-      .poster-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      .hero { gap: 35px; }
+      .poster-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width: 650px) {
-      .nav-links {
-        gap: 12px;
-      }
+      .container { width: min(100% - 30px, 1180px); }
 
-      .nav-links a:not(.instagram) {
-        display: none;
-      }
+      .nav-links { gap: 12px; }
+      .nav-links a:first-child { display: none; }
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 36px;
-        padding-block: 60px;
+        gap: 38px;
+        padding-block: 58px;
       }
 
-      .feature {
-        width: min(280px, 85%);
-      }
+      .feature { width: min(300px, 90%); }
 
       .section-heading {
-        align-items: start;
+        align-items: flex-start;
         flex-direction: column;
       }
 
-      .poster-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .poster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .poster { min-height: 285px; }
 
-      .poster {
-        min-height: 290px;
-      }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
 
-      .poster strong {
-        font-size: 27px;
-      }
-
-      .benefits {
-        grid-template-columns: 1fr;
-        padding: 60px 0;
-      }
+      .benefits { grid-template-columns: 1fr; padding: 55px 0; }
 
       footer {
         flex-direction: column;
@@ -432,18 +498,10 @@
       }
     }
 
-    @media (max-width: 380px) {
-      .container {
-        width: min(100% - 28px, 1180px);
-      }
-
-      .poster-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .poster {
-        min-height: 390px;
-      }
+    @media (max-width: 390px) {
+      .poster-grid { grid-template-columns: 1fr; }
+      .poster { min-height: 390px; }
+      .nav-links .nav-cta { padding: 9px 10px; }
     }
   </style>
 </head>
@@ -457,202 +515,273 @@
       </a>
 
       <div class="nav-links">
-        <a href="#galerie">La galerie</a>
-        <a href="#commande">Commander</a>
-        <a
-          class="instagram"
-          href="https://www.instagram.com/design_foot_13/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram ↗
-        </a>
+        <a href="#galerie">Exemples</a>
+        <a class="nav-cta" href="#demande">Créer mon affiche</a>
       </div>
     </nav>
 
     <main>
       <section class="hero">
         <div>
-          <div class="eyebrow">Affiches de football personnalisées</div>
-
-          <h1>
-            Le football,<br>
-            <em>encadré</em> comme un art.
-          </h1>
-
+          <div class="eyebrow">Une affiche de football à ton image</div>
+          <h1>Toi sur une affiche.<br><em>Ton match, ton histoire.</em></h1>
           <p class="intro">
-            Des créations premium pensées pour célébrer vos clubs,
-            vos légendes et vos souvenirs de match. Chaque affiche est
-            imaginée avec une finition graphique unique.
+            Tu choisis le style, ton club et ton adversaire, puis tu m’envoies
+            tes photos et les informations utiles. Je crée une affiche
+            personnalisée à partir de ta demande.
           </p>
 
-          <div class="buttons">
-            <a
-              class="button"
-              href="https://www.instagram.com/design_foot_13/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Créer mon affiche
-            </a>
-
-            <a class="button secondary" href="#galerie">
-              Voir la collection
-            </a>
+          <div class="hero-buttons">
+            <a class="button" href="#demande">Faire une demande</a>
+            <a class="button secondary" href="#galerie">Voir les exemples</a>
           </div>
         </div>
 
-        <div class="feature">
-          <div class="feature-content">
-            <small>DESIGN FOOT 13 · COLLECTION PRIVÉE</small>
-            <strong>Le jeu<br>est un art.</strong>
-            <p>Une affiche à votre image, de la première idée jusqu’au coup de sifflet final.</p>
-            <small>PERSONNALISÉE · 15 €</small>
-          </div>
+        <div class="feature" aria-label="Création personnalisée Design Foot 13">
+          <small>DESIGN FOOT 13 · CRÉATION SUR DEMANDE</small>
+          <strong>Le jeu<br>est un art.</strong>
+          <p>Les affiches de la galerie sont des exemples. Chaque nouvelle création est imaginée selon ta demande.</p>
+          <small>TON CLUB · TON VISUEL · TON AFFICHE</small>
         </div>
       </section>
 
       <section class="gallery" id="galerie">
         <div class="section-heading">
           <div>
-            <div class="eyebrow">Sélection</div>
-            <h2>La galerie</h2>
+            <div class="eyebrow">Quelques réalisations</div>
+            <h2>Exemples d’affiches</h2>
           </div>
-          <p>7 univers, une même passion.</p>
+          <p>Ces modèles servent d’inspiration.</p>
         </div>
 
-        <div class="poster-grid" id="poster-grid"></div>
+        <div class="poster-grid" id="poster-grid">
+          <article class="poster">
+            <img src="./EDF.png" alt="Exemple d'affiche équipe de France" loading="lazy">
+            <span>01 / ÉQUIPE DE FRANCE</span>
+            <strong>EDF</strong>
+            <small>Les Bleus · Édition prestige</small>
+          </article>
+
+          <article class="poster">
+            <img src="./lewandoski.png" alt="Exemple d'affiche Lewandowski" loading="lazy">
+            <span>02 / BARCELONE</span>
+            <strong>Lewandowski</strong>
+            <small>Le buteur · Matchday</small>
+          </article>
+
+          <article class="poster">
+            <img src="./liverpool.png" alt="Exemple d'affiche Liverpool" loading="lazy">
+            <span>03 / ANFIELD</span>
+            <strong>Liverpool</strong>
+            <small>You'll never walk alone</small>
+          </article>
+
+          <article class="poster">
+            <img src="./om.png" alt="Exemple d'affiche OM" loading="lazy">
+            <span>04 / ORANGE VÉLODROME</span>
+            <strong>OM</strong>
+            <small>Marseille · Édition ville</small>
+          </article>
+
+          <article class="poster">
+            <img src="./psg.png" alt="Exemple d'affiche PSG" loading="lazy">
+            <span>05 / PARIS</span>
+            <strong>PSG</strong>
+            <small>Capitale football</small>
+          </article>
+
+          <article class="poster">
+            <img src="./UF.png" alt="Exemple d'affiche UF" loading="lazy">
+            <span>06 / MANCHESTER</span>
+            <strong>UF</strong>
+            <small>Édition football</small>
+          </article>
+
+          <article class="poster">
+            <img src="./zidane.png" alt="Exemple d'affiche Zidane" loading="lazy">
+            <span>07 / LA LÉGENDE</span>
+            <strong>Zidane</strong>
+            <small>Numéro 10 · Intemporel</small>
+          </article>
+        </div>
+
+        <p class="gallery-note">
+          Les visuels présentés sont des exemples de créations et ne sont pas les affiches proposées à la vente telles quelles.
+        </p>
       </section>
 
-      <section class="price" id="commande">
-        <div class="eyebrow">Votre projet commence ici</div>
-        <h2>Votre affiche personnalisée : <strong>15 €</strong></h2>
-        <p>
-          Envoie ton idée, ton joueur ou ton club préféré sur Instagram.
-          Ensemble, nous créons une affiche qui ne ressemble à aucune autre.
+      <section class="request-section" id="demande">
+        <div class="eyebrow">Ta création personnalisée</div>
+        <h2>Parle-moi de ton affiche</h2>
+        <p class="request-intro">
+          Remplis le formulaire et ajoute tes photos ainsi que les logos des clubs.
+          Je recevrai ta demande à l’adresse designfoot13@gmail.com et pourrai te recontacter.
         </p>
 
-        <a
-          class="button"
-          href="https://www.instagram.com/design_foot_13/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <form
+          class="form-card"
+          id="request-form"
+          action="https://formsubmit.co/designfoot13@gmail.com"
+          method="POST"
+          enctype="multipart/form-data"
         >
-          Commander sur Instagram
-        </a>
+          <input type="hidden" name="_subject" value="Nouvelle demande d'affiche personnalisée — Design Foot 13">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="prenom">Prénom <span class="required">*</span></label>
+              <input id="prenom" name="Prénom" type="text" autocomplete="given-name" required>
+            </div>
+
+            <div class="field">
+              <label for="nom">Nom <span class="required">*</span></label>
+              <input id="nom" name="Nom" type="text" autocomplete="family-name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Adresse e-mail <span class="required">*</span></label>
+              <input id="email" name="E-mail du client" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="contact">Téléphone ou autre moyen de contact</label>
+              <input id="contact" name="Autre moyen de contact" type="text" autocomplete="tel" placeholder="Téléphone, Instagram…">
+            </div>
+
+            <div class="field full">
+              <label for="photos">Tes photos (jusqu’à 20)</label>
+              <input id="photos" name="Photos" type="file" accept="image/*" multiple>
+              <p class="hint">Tu peux sélectionner jusqu’à 20 images. La taille totale des fichiers du formulaire ne doit pas dépasser 10 Mo.</p>
+              <div class="file-status" id="photo-status" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="logo-club">Logo de ton club</label>
+              <input id="logo-club" name="Logo du club" type="file" accept="image/*">
+            </div>
+
+            <div class="field">
+              <label for="logo-adverse">Logo du club adverse</label>
+              <input id="logo-adverse" name="Logo du club adverse" type="file" accept="image/*">
+            </div>
+
+            <div class="field full">
+              <label for="details">Décris l’affiche que tu aimerais</label>
+              <textarea
+                id="details"
+                name="Détails de la demande"
+                placeholder="Ton club, le club adverse, les couleurs, un numéro de maillot, un texte ou un style que tu aimes…"
+              ></textarea>
+            </div>
+
+            <div class="field full">
+              <label class="consent" for="consentement">
+                <input id="consentement" name="Consentement" type="checkbox" value="Oui" required>
+                <span>J’accepte que mes informations et les fichiers envoyés soient utilisés pour répondre à ma demande d’affiche personnalisée. <span class="required">*</span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button" id="submit-button" type="submit">Envoyer ma demande</button>
+            <div class="form-message" id="form-message" aria-live="polite"></div>
+          </div>
+        </form>
       </section>
 
-      <section class="benefits">
+      <section class="benefits" aria-label="Comment ça marche">
         <div class="benefit">
           <b>01.</b>
-          <p>Une création personnalisée selon ton joueur, ton club, ton équipe ou ton idée.</p>
+          <p>Tu m’envoies tes photos, tes logos et les détails de ton idée directement par le formulaire.</p>
         </div>
 
         <div class="benefit">
           <b>02.</b>
-          <p>Un style premium pensé comme une pièce de collection pour les passionnés de football.</p>
+          <p>Je prends connaissance de ta demande et je te recontacte avec les prochaines étapes.</p>
         </div>
 
         <div class="benefit">
           <b>03.</b>
-          <p>Commande directement et simplement par message Instagram.</p>
+          <p>Ton affiche est créée sur mesure à partir des informations que tu m’as données.</p>
         </div>
       </section>
     </main>
 
     <footer>
       <span>© 2026 DESIGN FOOT 13</span>
-      <span>Affiches de football · Création sur mesure</span>
-      <a
-        href="https://www.instagram.com/design_foot_13/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <span>Affiches personnalisées · Création sur demande</span>
+      <a href="https://www.instagram.com/design_foot_13/" target="_blank" rel="noopener noreferrer">
         @design_foot_13 ↗
       </a>
     </footer>
   </div>
 
   <script>
-    const affiches = [
-      {
-        fichier: "EDF.png",
-        nom: "EDF",
-        categorie: "01 / ÉQUIPE DE FRANCE",
-        description: "Les Bleus · Édition prestige",
-        alt: "Affiche de l'équipe de France"
-      },
-      {
-        fichier: "lewandoski.png",
-        nom: "Lewandowski",
-        categorie: "02 / BARCELONE",
-        description: "Le buteur · Matchday",
-        alt: "Affiche Lewandowski"
-      },
-      {
-        fichier: "liverpool.png",
-        nom: "Liverpool",
-        categorie: "03 / ANFIELD",
-        description: "You'll never walk alone",
-        alt: "Affiche Liverpool"
-      },
-      {
-        fichier: "om.png",
-        nom: "OM",
-        categorie: "04 / ORANGE VÉLODROME",
-        description: "Marseille · Édition ville",
-        alt: "Affiche de l'OM"
-      },
-      {
-        fichier: "psg.png",
-        nom: "PSG",
-        categorie: "05 / PARIS",
-        description: "Capitale football",
-        alt: "Affiche du PSG"
-      },
-      {
-        fichier: "UFT.png",
-        nom: "UFT",
-        categorie: "06 / TOURS",
-        description: "Édition football",
-        alt: "Affiche UFT"
-      },
-      {
-        fichier: "zidane.png",
-        nom: "Zidane",
-        categorie: "07 / LA LÉGENDE",
-        description: "Numéro 10 · Intemporel",
-        alt: "Affiche Zidane"
+    const formulaire = document.getElementById("request-form");
+    const photos = document.getElementById("photos");
+    const logoClub = document.getElementById("logo-club");
+    const logoAdverse = document.getElementById("logo-adverse");
+    const photoStatus = document.getElementById("photo-status");
+    const formMessage = document.getElementById("form-message");
+    const submitButton = document.getElementById("submit-button");
+
+    const tailleMaxTotale = 10 * 1024 * 1024;
+
+    function fichiersSelectionnes() {
+      return [
+        ...Array.from(photos.files),
+        ...Array.from(logoClub.files),
+        ...Array.from(logoAdverse.files)
+      ];
+    }
+
+    function verifierFichiers() {
+      const listePhotos = Array.from(photos.files);
+      const tousLesFichiers = fichiersSelectionnes();
+      const tailleTotale = tousLesFichiers.reduce((somme, fichier) => somme + fichier.size, 0);
+
+      photos.setCustomValidity("");
+      photoStatus.className = "file-status";
+
+      if (listePhotos.length > 20) {
+        photos.setCustomValidity("Tu peux joindre au maximum 20 photos.");
+        photoStatus.textContent = "Tu as sélectionné " + listePhotos.length + " photos. La limite est de 20.";
+        photoStatus.classList.add("error");
+        return false;
       }
-    ];
 
-    const grille = document.getElementById("poster-grid");
-    const dossierDuSite = new URL("./", window.location.href);
+      if (tailleTotale > tailleMaxTotale) {
+        photos.setCustomValidity("La taille totale des photos et des logos dépasse 10 Mo.");
+        photoStatus.textContent = "Fichiers trop lourds : " + (tailleTotale / 1024 / 1024).toFixed(1) + " Mo sélectionnés (maximum 10 Mo).";
+        photoStatus.classList.add("error");
+        return false;
+      }
 
-    affiches.forEach(function (affiche) {
-      const carte = document.createElement("article");
-      carte.className = "poster";
+      const tailleTexte = (tailleTotale / 1024 / 1024).toFixed(1);
+      photoStatus.textContent = listePhotos.length + " photo(s) sélectionnée(s) · " + tailleTexte + " Mo au total.";
+      if (tailleTotale > 0) photoStatus.classList.add("success");
+      return true;
+    }
 
-      const image = document.createElement("img");
-      image.src = new URL(encodeURIComponent(affiche.fichier), dossierDuSite).href;
-      image.alt = affiche.alt;
-      image.loading = "lazy";
+    photos.addEventListener("change", verifierFichiers);
+    logoClub.addEventListener("change", verifierFichiers);
+    logoAdverse.addEventListener("change", verifierFichiers);
 
-      const categorie = document.createElement("span");
-      categorie.textContent = affiche.categorie;
+    formulaire.addEventListener("submit", function (evenement) {
+      formMessage.className = "form-message";
+      formMessage.textContent = "";
 
-      const nom = document.createElement("strong");
-      nom.textContent = affiche.nom;
+      if (!verifierFichiers()) {
+        evenement.preventDefault();
+        photos.reportValidity();
+        return;
+      }
 
-      const description = document.createElement("small");
-      description.textContent = affiche.description;
-
-      carte.appendChild(image);
-      carte.appendChild(categorie);
-      carte.appendChild(nom);
-      carte.appendChild(description);
-
-      grille.appendChild(carte);
+      submitButton.disabled = true;
+      submitButton.textContent = "Envoi en cours…";
+      formMessage.textContent = "Envoi de ta demande. Ne ferme pas cette page avant la confirmation.";
     });
   </script>
 </body>
