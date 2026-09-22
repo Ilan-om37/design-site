@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Affiches de football personnalisées — Design Foot 13">
   <title>Design Foot 13 — Affiches de football</title>
 
   <style>
@@ -14,9 +15,13 @@
       --line: rgba(217, 179, 102, .28);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -35,14 +40,15 @@
 
     .container {
       width: min(1180px, calc(100% - 40px));
-      margin: auto;
+      margin-inline: auto;
     }
 
     nav {
-      height: 86px;
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -81,7 +87,7 @@
       grid-template-columns: 1.1fr .9fr;
       align-items: center;
       gap: 70px;
-      padding: 75px 0;
+      padding-block: 75px;
     }
 
     .eyebrow {
@@ -137,7 +143,7 @@
       position: relative;
       width: min(355px, 100%);
       aspect-ratio: .68;
-      margin: auto;
+      margin-inline: auto;
       padding: 24px;
       overflow: hidden;
       background: linear-gradient(145deg, #15161a, #030303 70%);
@@ -192,6 +198,7 @@
 
     .gallery {
       padding: 32px 0 100px;
+      scroll-margin-top: 20px;
     }
 
     .section-heading {
@@ -216,7 +223,7 @@
 
     .poster-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 15px;
     }
 
@@ -242,30 +249,36 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       opacity: .82;
       transition: transform .35s ease, opacity .35s ease;
     }
 
     .poster:hover img {
-      transform: scale(1.07);
+      transform: scale(1.06);
       opacity: 1;
     }
 
     .poster::before {
       content: "";
       position: absolute;
-      inset: 8px;
       z-index: 1;
-      border: 1px solid rgba(255, 255, 255, .24);
+      inset: 8px;
+      border: 1px solid rgba(255, 255, 255, .3);
       pointer-events: none;
     }
 
     .poster::after {
       content: "";
       position: absolute;
-      inset: 0;
       z-index: 1;
-      background: linear-gradient(180deg, rgba(0, 0, 0, .25), transparent 40%, rgba(0, 0, 0, .85));
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, .4),
+        transparent 38%,
+        rgba(0, 0, 0, .82)
+      );
       pointer-events: none;
     }
 
@@ -279,21 +292,22 @@
     .poster span {
       color: var(--gold);
       font-size: 10px;
-      letter-spacing: .18em;
+      letter-spacing: .14em;
     }
 
     .poster strong {
-      max-width: 155px;
-      font: 34px/.86 Georgia, serif;
+      max-width: 100%;
+      font: 34px/.95 Georgia, serif;
       text-transform: uppercase;
       letter-spacing: -.05em;
+      overflow-wrap: anywhere;
     }
 
     .poster small {
       color: #eee9df;
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: .15em;
+      letter-spacing: .12em;
     }
 
     .price {
@@ -302,14 +316,17 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: linear-gradient(90deg, transparent, rgba(217, 179, 102, .08), transparent);
+      scroll-margin-top: 20px;
     }
 
     .price h2 {
       margin: 14px 0;
-      font-size: clamp(41px, 6vw, 70px);
+      font-size: clamp(36px, 6vw, 70px);
     }
 
-    .price strong { color: var(--gold); }
+    .price h2 strong {
+      color: var(--gold);
+    }
 
     .price p {
       max-width: 540px;
@@ -353,23 +370,61 @@
       font-size: 12px;
     }
 
-    footer a { color: var(--gold); }
+    footer a {
+      color: var(--gold);
+    }
 
-    @media (max-width: 760px) {
-      .nav-links a:not(.instagram) { display: none; }
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 35px;
+      }
+
+      .poster-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a:not(.instagram) {
+        display: none;
+      }
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 60px 0;
+        gap: 36px;
+        padding-block: 60px;
       }
 
-      .feature { width: 280px; }
+      .feature {
+        width: min(280px, 85%);
+      }
 
-      .poster-grid { grid-template-columns: repeat(2, 1fr); }
-      .poster { min-height: 260px; }
-      .poster strong { font-size: 27px; }
-      .benefits { grid-template-columns: 1fr; }
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .poster-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .poster {
+        min-height: 290px;
+      }
+
+      .poster strong {
+        font-size: 27px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+      }
 
       footer {
         flex-direction: column;
@@ -377,9 +432,18 @@
       }
     }
 
-    @media (max-width: 420px) {
-      .poster-grid { grid-template-columns: 1fr; }
-      .poster { min-height: 380px; }
+    @media (max-width: 380px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .poster-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .poster {
+        min-height: 390px;
+      }
     }
   </style>
 </head>
@@ -387,7 +451,7 @@
 <body>
   <div class="container">
     <nav>
-      <a class="logo" href="#">
+      <a class="logo" href="#" aria-label="Design Foot 13, accueil">
         DESIGN FOOT
         <span>STUDIO 13</span>
       </a>
@@ -395,7 +459,12 @@
       <div class="nav-links">
         <a href="#galerie">La galerie</a>
         <a href="#commande">Commander</a>
-        <a class="instagram" href="https://www.instagram.com/design_foot_13/" target="_blank" rel="noopener noreferrer">
+        <a
+          class="instagram"
+          href="https://www.instagram.com/design_foot_13/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Instagram ↗
         </a>
       </div>
@@ -418,7 +487,12 @@
           </p>
 
           <div class="buttons">
-            <a class="button" href="https://www.instagram.com/design_foot_13/" target="_blank" rel="noopener noreferrer">
+            <a
+              class="button"
+              href="https://www.instagram.com/design_foot_13/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Créer mon affiche
             </a>
             <a class="button secondary" href="#galerie">Voir la collection</a>
@@ -446,49 +520,49 @@
 
         <div class="poster-grid">
           <article class="poster">
-            <img src="posters/EDF.png" alt="Affiche de l'équipe de France">
+            <img src="./EDF.png" alt="Affiche de l'équipe de France">
             <span>01 / ÉQUIPE DE FRANCE</span>
             <strong>EDF</strong>
             <small>Les Bleus · Édition prestige</small>
           </article>
 
           <article class="poster">
-            <img src="posters/lewandoski.png" alt="Affiche Lewandowski">
+            <img src="./lewandoski.png" alt="Affiche Lewandowski">
             <span>02 / BARCELONE</span>
             <strong>Lewandowski</strong>
             <small>Le buteur · Matchday</small>
           </article>
 
           <article class="poster">
-            <img src="posters/liverpool.png" alt="Affiche Liverpool">
+            <img src="./liverpool.png" alt="Affiche Liverpool">
             <span>03 / ANFIELD</span>
             <strong>Liverpool</strong>
             <small>You'll never walk alone</small>
           </article>
 
           <article class="poster">
-            <img src="posters/om.png" alt="Affiche de l'OM">
+            <img src="./om.png" alt="Affiche de l'OM">
             <span>04 / ORANGE VÉLODROME</span>
             <strong>OM</strong>
             <small>Marseille · Édition ville</small>
           </article>
 
           <article class="poster">
-            <img src="posters/psg.png" alt="Affiche du PSG">
+            <img src="./psg.png" alt="Affiche du PSG">
             <span>05 / PARIS</span>
             <strong>PSG</strong>
             <small>Capitale football</small>
           </article>
 
           <article class="poster">
-            <img src="posters/UF.png" alt="Affiche UF">
+            <img src="./UF.png" alt="Affiche UF">
             <span>06 / MANCHESTER</span>
             <strong>UF</strong>
             <small>Édition football</small>
           </article>
 
           <article class="poster">
-            <img src="posters/zidane.png" alt="Affiche Zidane">
+            <img src="./zidane.png" alt="Affiche Zidane">
             <span>07 / LA LÉGENDE</span>
             <strong>Zidane</strong>
             <small>Numéro 10 · Intemporel</small>
@@ -504,7 +578,12 @@
           Ensemble, nous créons une affiche qui ne ressemble à aucune autre.
         </p>
 
-        <a class="button" href="https://www.instagram.com/design_foot_13/" target="_blank" rel="noopener noreferrer">
+        <a
+          class="button"
+          href="https://www.instagram.com/design_foot_13/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Commander sur Instagram
         </a>
       </section>
@@ -530,7 +609,11 @@
     <footer>
       <span>© 2026 DESIGN FOOT 13</span>
       <span>Affiches de football · Création sur mesure</span>
-      <a href="https://www.instagram.com/design_foot_13/" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.instagram.com/design_foot_13/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         @design_foot_13 ↗
       </a>
     </footer>
